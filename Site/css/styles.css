@@ -1,0 +1,376 @@
+/* Light Mode Theme Variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #007acc;
+  --accent-hover-color: #005f99;
+  --header-bg-color: #f5f5f5;
+  --header-text-color: #222222;
+  --card-bg-color: #f9f9f9;
+  --card-border-color: #e0e0e0;
+  --button-bg-color: #007acc;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #005f99;
+  --input-bg-color: #ffffff;
+  --input-border-color: #cccccc;
+  --input-text-color: #333333;
+  --modal-bg-color: #ffffff;
+  --modal-overlay-color: rgba(0, 0, 0, 0.4);
+  --element-bg: #ffffff; /* Background color for elements like containers */
+  --element-fg: #333333; /* Foreground color for text */
+  
+  /* Groupbox Specific */
+  --groupbox-border-color: #e0e0e0;
+  --groupbox-label-color: #333333;
+  --groupbox-content-bg: #ffffff;
+  --groupbox-content-text-color: #333333;
+
+  /* Form element specific */
+  --select-bg-color: #ffffff;
+  --select-border-color: #cccccc;
+  --select-text-color: #333333;
+  --input-bg-color: #ffffff;
+  --input-border-color: #cccccc;
+  --input-text-color: #333333;
+  --label-text-color: #333333;
+  --option-bg-color: #ffffff;
+  --option-text-color: #333333;
+
+    /* Function Item Variables (Light Mode) */
+    --functionItem-bg-color: #f8f9fa;
+    --functionItem-border-color: #0dcaf0;
+    --functionItem-h5-color: #0d6efd;
+    --functionItem-pre-bg-color: #212529;
+    --functionItem-pre-text-color: #f8f9fa;
+    --info-section-span-color: #495057;
+}
+
+/* Dark Mode (Dracula-Inspired) Theme Variables */
+:root[data-theme="dark"] {
+  --bg-color: #282a36;
+  --text-color: #f8f8f2;
+  --accent-color: #6272a4;
+  --accent-hover-color: #44475a;
+  --header-bg-color: #44475a;
+  --header-text-color: #f8f8f2;
+  --card-bg-color: #373844;
+  --card-border-color: #44475a;
+  --button-bg-color: #6272a4;
+  --button-text-color: #f8f8f2;
+  --button-hover-bg-color: #44475a;
+  --input-bg-color: #44475a;
+  --input-border-color: #6272a4;
+  --input-text-color: #f8f8f2;
+  --modal-bg-color: #282a36;
+  --modal-overlay-color: rgba(0, 0, 0, 0.7);
+  --element-bg: #44475a; /* Darker gray for elements like containers */
+  --element-fg: #f8f8f2; /* Foreground color for text */
+  
+  /* Groupbox Specific */
+  --groupbox-border-color: #44475a;
+  --groupbox-label-color: #f8f8f2;
+  --groupbox-content-bg: #373844;
+  --groupbox-content-text-color: #f8f8f2;
+
+  /* Form element specific */
+  --select-bg-color: #44475a;
+  --select-border-color: #6272a4;
+  --select-text-color: #f8f8f2;
+  --input-bg-color: #44475a;
+  --input-border-color: #6272a4;
+  --input-text-color: #f8f8f2;
+  --label-text-color: #f8f8f2;
+  --option-bg-color: #44475a;
+  --option-text-color: #f8f8f2;
+
+    /* Function Item Variables (Dark Mode) */
+    --functionItem-bg-color: #44475a;
+    --functionItem-border-color: #6272a4;
+    --functionItem-h5-color: #f8f8f2;
+    --functionItem-pre-bg-color: #212529;
+    --functionItem-pre-text-color: #f8f8f2;
+    --info-section-span-color: #f8f8f2;
+}
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+
+/*
+ * =====================================================
+ * Styles for Advanced Search Component on the Page
+ * =====================================================
+*/
+.orionGroupbox {
+  border: 1px solid var(--groupbox-border-color);
+  border-radius: 5px;
+  color: var(--groupbox-content-text-color);
+  padding: 15px 10px;
+  position: relative;
+  margin: 20px;
+  background-color: var(--groupbox-content-bg);
+}
+
+.Groupboxlabel {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background: var(--bg-color);
+  padding: 0 5px;
+  font-size: 14px;
+  color: var(--groupbox-label-color);
+}
+
+/*
+ * =====================================================
+ * Styles for the Regular Search Component on the page
+ * =====================================================
+*/
+.queryAreaContainer {
+  padding: 1rem;
+  max-width: calc(100% - 200px);
+}
+
+.queryAreaContainer .search-container {
+  margin: 1rem 0;
+}
+
+.queryAreaContainer .search-container #search-bar {
+  width: 50%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+}
+
+/*
+ * =====================================================
+ * Styles for the Header Component at the Page top that
+ * displays site logo and credits
+ * =====================================================
+*/
+/* Ensure the SVG is displayed as the background */
+.SCEDocs-TopHeader {
+  shape-rendering: auto;
+  background-color: var(--header-bg-color);
+  background-image: url(../media/Untitled.svg);
+  background-repeat: repeat;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 150px;
+}
+
+/* 
+ * Style to ensure that the container is:
+ * - Position the content absolutely over the SVG 
+ * - Make sure it's on top of the background
+ * - Center the text
+*/
+.SCEDocs-TopHeader .container-fluid {
+  position: absolute;
+  padding: 2rem 1rem;
+  z-index: 1;        
+  text-align: center;
+}
+
+.SCEDocs-TopHeader .headerTitle {
+  white-space: nowrap;
+
+  margin: 0;
+  color: #fff;
+  /* Add a slight shadow to text for better visibility */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.SCEDocs-TopHeader .headerTitle-icon {
+  height: 48px;
+  margin-left: 1rem;
+}
+
+.SCEDocs-TopHeader .headerDescription {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: #fff;
+  /* Add text shadow for description */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+
+/*
+ * =====================================================
+ * Styles for the Container, that will display the found
+ * SCE Function results after user has searched
+ * =====================================================
+*/
+.SCE-MainArea {
+  margin: 2rem auto;
+  padding: 1rem;
+  background: var(--header-bg-color);
+  color: var(--header-fg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.SCE-MainArea > section {
+  margin-bottom: 2rem;
+}
+
+.SCE-MainArea > section h2 {
+  color: var(--accent-color);
+}
+
+/*
+ * =====================================================
+ * Styles for the SCE Functions and their elements that
+ * will be displayed on the page after search
+ * =====================================================
+*/
+
+.function-item {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--functionItem-bg-color);
+  border-left: 5px solid var(--functionItem-border-color);
+  border-radius: 8px;
+}
+
+.function-item h5 {
+  font-weight: bold;
+  color: var(--functionItem-h5-color);
+}
+
+.function-item .badge {
+  font-size: 0.9em;
+}
+
+.function-item pre {
+  background-color: var(--functionItem-pre-bg-color);
+  color: var(--functionItem-pre-text-color);
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.info-section {
+  margin-bottom: 15px;
+}
+
+.info-section span {
+  font-weight: bold;
+  color: var(--info-section-span-color);
+}
+
+.info-section ul {
+  padding-left: 20px;
+}
+
+.info-section ul li {
+  margin-bottom: 5px;
+}
+
+.prototypeCodeSnippet {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 5px;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.prototypeHeader {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0; /* Remove bottom margin */
+  background-color: #e2e3e5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+  color: #41464b;
+}
+
+/* Remove top margin of the <pre> element */
+.prototypeHeader + pre {margin-top: 0;}
+
+/*
+ * =====================================================
+ * TODO: Implement a Nice looking footer, to be displayed on the
+ * bottom of the page, with credits, other sources, etc.
+ * =====================================================
+*/
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: var(--header-bg-color);
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+}
+
+
+
+/*
+ * =====================================================
+ * Ripped from Bootstrap!
+ * Buttons 
+ * =====================================================
+*/
+.btn-merged {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
+  border: 1px solid #212529;
+  border-radius: 0.375rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+
+  &:hover {
+    color: var(--button-text-color);
+    background-color: var(--button-hover-bg-color);
+    border-color: #373b3e;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
+  }
+
+  &:active {
+    background-color: #4d5154;
+    border-color: #373b3e;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    background-color: #212529;
+    border-color: #212529;
+    color: #fff;
+  }
+}
