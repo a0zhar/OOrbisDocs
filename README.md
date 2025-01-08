@@ -1,4 +1,6 @@
-# Welcome to OrbisOS-Docs
+# Welcome to OOrbisDocs
+> 🚧 This Project is still in-development 🚧
+
 This repository (*will*) contain the **full source code** for a Web-based documentation site designed to provide a **User-Friendly** interface for exploring the **Unofficial Sony PS4 SDK (OpenOrbis) and the SCE Functions**. 
 
 Inspired by the FreeBSD man pages, the site enables developers to quickly and efficiently search for PS4 system-specific **SCE (Sony Computer Entertainment?)** functions and retrieve detailed information about them.
@@ -10,7 +12,7 @@ I made the primary goal of this project to create a resource for developers work
 By making function details accessible and easy to navigate.
 
 ### Features  
-Users of OrbisOS-Docs can:  
+Users of OOrbisDocs can:  
 - Search for PS4-specific **SCE functions** by name.  
 - View detailed descriptions of each function.  
 - Access **C syntax** for functions, including proper highlighting.  
