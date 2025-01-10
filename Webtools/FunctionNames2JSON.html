@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SCE Function JSON Category Maker Tool</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: ghostwhite;
+      font-family: arial;
+    }
+
+    .inputTxtArea {
+      width: 75vw;
+      height: 150px;
+    }
+
+    .Input-Group {
+      max-width: 350px;
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .Input-Group label {text-align: left;}
+    .Input-Group input {flex: 1;}
+
+    /* Styles shared by both input and label element*/
+    .Input-Group input,
+    .Input-Group label {margin-left: 20px;}
+
+    .OOrbisSDK-Header {
+      padding: 0.5rem 1rem;
+      background-color: #222;
+    }
+
+    .OOrbisSDK-Htitle,
+    .OOrbisSDK-Summary {
+      font-family: Calibri;
+    }
+
+    .OOrbisSDK-Htitle {
+      font-style: bold;
+      width: fit-content;
+      color: crimson;
+    }
+
+    .OOrbisSDK-Summary {
+      --pad-top: 2px;
+      --pad-left: 10px;
+      --pad-bottom: 5px;
+      font-size: 15px;
+      color: #fff;
+      padding: var(--pad-top) 0 var(--pad-left) var(--pad-bottom);
+    }
+
+    .OOrbisSDK-Summary span {
+      font-style: italic;
+      font-size: 14px;
+      background: lightblue;
+      border-radius: 5px;
+      padding: 1px;
+      color: #000;
+    }
+
+    /**
+     * Ripped Straight From Bootstrap v5.3.2 (hehe)
+    **/
+    .container {
+      --bs-gutter-x: 1.5rem; /* Horizontal spacing */
+      --bs-gutter-y: 0;      /* Vertical spacing */
+      width: 100%;
+      padding-right: var(--bs-gutter-x, 1.5rem);
+      padding-left: var(--bs-gutter-x, 1.5rem);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (min-width: 576px)  {.container {max-width: 540px;}}
+    @media (min-width: 768px)  {.container {max-width: 720px;}}
+    @media (min-width: 992px)  {.container {max-width: 960px;}}
+    @media (min-width: 1200px) {.container {max-width: 1140px;}}
+    @media (min-width: 1400px) {.container {max-width: 1320px;}}
+  </style>
+</head>
+
+<body>
+  <header class="OOrbisSDK-Header">
+    <h1 class="OOrbisSDK-Htitle">OpenOrbis SDK Docs</h1>
+    <p class="OOrbisSDK-Summary">
+      This is a simple tool, that allows you to easily make a new JSON file containing the provided Sce Function Names Categorized. <span>Made by A0zhar (aka KHALID)</span>
+    </p>
+  </header>
+  <div class="container">
+    <h4>Please fill in the following Information regarding the Functions</h4>
+    <div class="Input-Group">
+      <label for="functionTopic">Category/Topic</label>
+      <input type="text" id="functionTopic" />
+    </div>
+    <div class="Input-Group">
+      <label for="ps4Library">System Module</label>
+      <input type="text" id="ps4Library" />
+    </div>
+
+    <h4>Please enter the function names, each on a seperate line</h4>
+    <textarea class="inputTxtArea" id="namesArea"></textarea>
+    <br>
+    <button onclick="makeJson()">Format JSON</button>
+  </div>
+  <div id="outputContainer" class="container" hidden>
+    <h1>Output</h1>
+    <textarea class="inputTxtArea" id="jsonResult"></textarea>
+  </div>
+  <script>
+    function makeJson() {
+      let outputElement = document.getElementById("outputContainer");
+      let PS4ModuleName = document.getElementById("ps4Library");
+      let functionsTopic = document.getElementById("functionTopic");
+      let namesTextArea = document.getElementById("namesArea");
+      let outputTextArea = document.getElementById("jsonResult");
+      
+      let indentation = "  "; // Spacing (Tab)
+      
+      // Obtain contents of the textarea with function names,
+      // then we make a array from it, by creating a seperate
+      // array entry for each new line
+      let content = namesTextArea.value.split("\n");
+      
+      // Buffer to store the resulted JSON code:
+      // We begin by defining the parent object which is the
+      // name of the PS4 module that the functions are found
+      // inside of, and then we add each one of the children
+      let results = `{\n${indentation}"${PS4ModuleName.value}": {\n`;
+      
+      // Double the initial indentation for child objects
+      indentation += indentation;
+      
+      // Helper Function, for creating a new JSON entry object
+      function lineToJsonEntryObject(line) {
+        return `${indentation}"${line}": {
+        "topic": "${functionsTopic.value}",
+        "syntax": "",
+        "description": "",
+        "parameters":[],
+        "returns":""
+        },`;
+      }
+      
+      // Loop trough each line of provided function names, creating
+      // a new JSON object entry for each one of them
+      for (let currIdx in content) {
+        results += lineToJsonEntryObject(content[currIdx]) + "\n";
+      }
+      
+      // Display the results
+      outputElement.hidden = false;
+      outputTextArea.value = results + "\n}";
+    }
+  </script>
+</body>
+
+</html>
